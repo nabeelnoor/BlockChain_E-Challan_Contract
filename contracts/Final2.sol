@@ -18,12 +18,10 @@ contract Final2{
 
     struct VoilationRule{
     string Description; //description of the rule
-    uint[3] Fine;  
-    /*
-    0: ACategoryVehicle_Fine //includes Motorcycle
-    1: BCategoryVehicle_Fine; //includes Motorcar,Jeep,
-    2: CCategoryVehicle_Fine; //includes PrivateCarrier,PublicCarrier
-    */
+    // uint Fine; 
+    uint ACategoryVehicle_Fine;  //includes motorcycle
+    uint BCategoryVehicle_Fine;
+    uint CCategoryVehicle_Fine;
     bool status;
     }
 
@@ -45,13 +43,15 @@ contract Final2{
 
     function addTrafficRule(string calldata _description,uint _Afine,uint _Bfine,uint _Cfine) public{  
         require(msg.sender==Owner);
-        RuleList.push(VoilationRule(_description,[_Afine,_Bfine,_Cfine],true));
+        RuleList.push(VoilationRule(_description,_Afine,_Bfine,_Cfine,true));
     }
 
     function updatePriceForRule(uint _ruleID,uint _Afine,uint _Bfine,uint _Cfine) public{ //update price of rule by giving its rule code 
         require(msg.sender==Owner);
         require(_ruleID<(RuleList.length));
-        RuleList[_ruleID].Fine=[_Afine,_Bfine,_Cfine];
+        RuleList[_ruleID]. ACategoryVehicle_Fine=_Afine;
+        RuleList[_ruleID]. ACategoryVehicle_Fine=_Bfine;
+        RuleList[_ruleID]. ACategoryVehicle_Fine=_Cfine;
     }
 
     
@@ -71,27 +71,17 @@ contract Final2{
         delete ActiveChallan[_LicenseID];
     }
 
-    function addChallan(string memory _LicenseID,string memory _Name,string memory _CNIC,VehicleType _CarType,string memory _carPlate,uint[] memory _voilatedRules,string memory _timeStamp) public{
+    function addChallan(string memory _LicenseID,string memory _Name,string memory _CNIC,VehicleType _Car,string memory _carPlate,uint[] memory _voilatedRules,string memory _timeStamp) public{
         require(TP[msg.sender]==true);
         uint VoilationFee=0;
         for(uint i=0;i<_voilatedRules.length;i++){
-            if(_CarType==VehicleType.Motorcar){
-                VoilationFee+=RuleList[i].Fine[0];
-            }else if(_CarType==VehicleType.Jeep || _CarType==VehicleType.Motorcar){
-                VoilationFee+=RuleList[i].Fine[1];
-            }else if(_CarType==VehicleType.PublicServiceVehicle || _CarType==VehicleType.PrivateCarrier || _CarType==VehicleType.PublicCarrier){
-                VoilationFee+=RuleList[i].Fine[2];
-            }
+            VoilationFee+=RuleList[i].ACategoryVehicle_Fine;
         }
-        ActiveChallan[_LicenseID]=Challan(_LicenseID,_Name,_CNIC,_CarType,_carPlate,_voilatedRules,_timeStamp,VoilationFee,true);
+        ActiveChallan[_LicenseID]=Challan(_LicenseID,_Name,_CNIC,_Car,_carPlate,_voilatedRules,_timeStamp,VoilationFee,true);
     }
 
     function test(VehicleType _temp) public pure returns(VehicleType){
         return _temp;
-    }
-
-    function getCurrentChallan(string calldata _LicenseID) public view returns(Challan memory){
-        return ActiveChallan[_LicenseID];
     }
 
     // function getChallan(string calldata) public returns(){
