@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-contract Final11{
+contract Final12{
     enum VehicleType {Motorcycle,Motorcar,Jeep,PublicServiceVehicle,PrivateCarrier,PublicCarrier}
 
     struct Challan{
@@ -84,14 +84,15 @@ contract Final11{
 
     function addChallan(string memory _LicenseID,string memory _Name,string memory _CNIC,VehicleType _CarType,string memory _carPlate,uint[] memory _voilatedRules,string memory _timeStamp) public{
         // require(TP[msg.sender]==true); //only filled by traffic police officer
+        require(ActiveChallan[_LicenseID].status==false);
         uint VoilationFee=0;
         for(uint i=0;i<_voilatedRules.length;i++){
             if(_CarType==VehicleType.Motorcycle){
-                VoilationFee+=RuleList[i].ACategoryVehicle_Fine;
+                VoilationFee+=RuleList[_voilatedRules[i]].ACategoryVehicle_Fine;
             }else if(_CarType==VehicleType.Jeep || _CarType==VehicleType.Motorcar){
-                VoilationFee+=RuleList[i].BCategoryVehicle_Fine;
+                VoilationFee+=RuleList[_voilatedRules[i]].BCategoryVehicle_Fine;
             }else if(_CarType==VehicleType.PublicServiceVehicle || _CarType==VehicleType.PrivateCarrier || _CarType==VehicleType.PublicCarrier){
-                VoilationFee+=RuleList[i].CCategoryVehicle_Fine;
+                VoilationFee+=RuleList[_voilatedRules[i]].CCategoryVehicle_Fine;
             }
         }
         ActiveChallan[_LicenseID]=Challan(_LicenseID,_Name,_CNIC,_CarType,_carPlate,_voilatedRules,_timeStamp,VoilationFee,true);

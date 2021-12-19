@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-contract Final11{
+contract Final13{
     enum VehicleType {Motorcycle,Motorcar,Jeep,PublicServiceVehicle,PrivateCarrier,PublicCarrier}
 
     struct Challan{
@@ -36,11 +36,11 @@ contract Final11{
     constructor(){
         Owner=msg.sender;
         
-        RuleList.push(VoilationRule("Exceeding prescribed speed limit",200,500,750,true));
-        RuleList.push(VoilationRule("Carrying passengers in a public service vehicle exceeding permissible limit",0,500,750,true));
-        RuleList.push(VoilationRule("Violation of traffic signals(Electronic/Manual)",200,500,1000,true));
-        RuleList.push(VoilationRule("Overloading a goods vehicle",0,500,500,true));
-        RuleList.push(VoilationRule("Driving a motor vehicle at night without proper lights",200,300,500,true));
+        RuleList.push(VoilationRule("Exceeding prescribed speed limit",20,50,75,true));
+        RuleList.push(VoilationRule("Carrying passengers in a public service vehicle exceeding permissible limit",0,50,75,true));
+        RuleList.push(VoilationRule("Violation of traffic signals(Electronic/Manual)",20,50,100,true));
+        RuleList.push(VoilationRule("Overloading a goods vehicle",0,50,50,true));
+        RuleList.push(VoilationRule("Driving a motor vehicle at night without proper lights",20,30,50,true));
         //append all rules in the start of the application
     }
 
@@ -84,14 +84,15 @@ contract Final11{
 
     function addChallan(string memory _LicenseID,string memory _Name,string memory _CNIC,VehicleType _CarType,string memory _carPlate,uint[] memory _voilatedRules,string memory _timeStamp) public{
         // require(TP[msg.sender]==true); //only filled by traffic police officer
+        require(ActiveChallan[_LicenseID].status==false);
         uint VoilationFee=0;
         for(uint i=0;i<_voilatedRules.length;i++){
             if(_CarType==VehicleType.Motorcycle){
-                VoilationFee+=RuleList[i].ACategoryVehicle_Fine;
+                VoilationFee+=RuleList[_voilatedRules[i]].ACategoryVehicle_Fine;
             }else if(_CarType==VehicleType.Jeep || _CarType==VehicleType.Motorcar){
-                VoilationFee+=RuleList[i].BCategoryVehicle_Fine;
+                VoilationFee+=RuleList[_voilatedRules[i]].BCategoryVehicle_Fine;
             }else if(_CarType==VehicleType.PublicServiceVehicle || _CarType==VehicleType.PrivateCarrier || _CarType==VehicleType.PublicCarrier){
-                VoilationFee+=RuleList[i].CCategoryVehicle_Fine;
+                VoilationFee+=RuleList[_voilatedRules[i]].CCategoryVehicle_Fine;
             }
         }
         ActiveChallan[_LicenseID]=Challan(_LicenseID,_Name,_CNIC,_CarType,_carPlate,_voilatedRules,_timeStamp,VoilationFee,true);
