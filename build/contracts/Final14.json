@@ -58,7 +58,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -117,7 +118,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -130,7 +132,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -169,7 +172,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -188,7 +192,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -201,7 +206,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -214,7 +220,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -418,7 +425,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -484,7 +492,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -524,7 +533,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -537,7 +547,8 @@
         }
       ],
       "stateMutability": "payable",
-      "type": "function"
+      "type": "function",
+      "payable": true
     },
     {
       "inputs": [
@@ -550,7 +561,8 @@
       "name": "payChallan",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function"
+      "type": "function",
+      "payable": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"name\":\"ActiveChallan\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"LicenseID\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"CitizenName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"CitizenCNIC\",\"type\":\"string\"},{\"internalType\":\"enum Final14.VehicleType\",\"name\":\"CarType\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"CarNumberPlate\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"timeStamp\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"Fine\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"status\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"ChallanHistory\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"LicenseID\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"CitizenName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"CitizenCNIC\",\"type\":\"string\"},{\"internalType\":\"enum Final14.VehicleType\",\"name\":\"CarType\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"CarNumberPlate\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"timeStamp\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"Fine\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"status\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"Owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"RuleList\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"Description\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"ACategoryVehicle_Fine\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"BCategoryVehicle_Fine\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"CCategoryVehicle_Fine\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"status\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"TP\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_ruleID\",\"type\":\"uint256\"}],\"name\":\"activateRule\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_LicenseID\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_Name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_CNIC\",\"type\":\"string\"},{\"internalType\":\"enum Final14.VehicleType\",\"name\":\"_CarType\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"_carPlate\",\"type\":\"string\"},{\"internalType\":\"uint256[]\",\"name\":\"_voilatedRules\",\"type\":\"uint256[]\"},{\"internalType\":\"string\",\"name\":\"_timeStamp\",\"type\":\"string\"}],\"name\":\"addChallan\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_TP\",\"type\":\"address\"}],\"name\":\"addTrafficPolice\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_description\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_Afine\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_Bfine\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_Cfine\",\"type\":\"uint256\"}],\"name\":\"addTrafficRule\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_ruleID\",\"type\":\"uint256\"}],\"name\":\"deactivateRule\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_LicenseID\",\"type\":\"string\"}],\"name\":\"getAllChallan\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"LicenseID\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"CitizenName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"CitizenCNIC\",\"type\":\"string\"},{\"internalType\":\"enum Final14.VehicleType\",\"name\":\"CarType\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"CarNumberPlate\",\"type\":\"string\"},{\"internalType\":\"uint256[]\",\"name\":\"VoilationCode\",\"type\":\"uint256[]\"},{\"internalType\":\"string\",\"name\":\"timeStamp\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"Fine\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"status\",\"type\":\"bool\"}],\"internalType\":\"struct Final14.Challan[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_LicenseID\",\"type\":\"string\"}],\"name\":\"getCurrentChallan\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"LicenseID\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"CitizenName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"CitizenCNIC\",\"type\":\"string\"},{\"internalType\":\"enum Final14.VehicleType\",\"name\":\"CarType\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"CarNumberPlate\",\"type\":\"string\"},{\"internalType\":\"uint256[]\",\"name\":\"VoilationCode\",\"type\":\"uint256[]\"},{\"internalType\":\"string\",\"name\":\"timeStamp\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"Fine\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"status\",\"type\":\"bool\"}],\"internalType\":\"struct Final14.Challan\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTrafficRules\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"Description\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"ACategoryVehicle_Fine\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"BCategoryVehicle_Fine\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"CCategoryVehicle_Fine\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"status\",\"type\":\"bool\"}],\"internalType\":\"struct Final14.VoilationRule[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_LicenseID\",\"type\":\"string\"}],\"name\":\"payChallan\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"test\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"testStatus\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"testValue\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_ruleID\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_Afine\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_Bfine\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_Cfine\",\"type\":\"uint256\"}],\"name\":\"updatePriceForRule\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Final14.sol\":\"Final14\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Final14.sol\":{\"keccak256\":\"0x32a096b655a9b34c3959dfd6832ca42455b258eda877b69551fe87fd2df05556\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://aafbec2d41af20d5d699b9fac8c1ca8b72d58727461adb51842d3fd793956301\",\"dweb:/ipfs/QmRij7sLAonew5qDSatmfVbGSk9yKkEYGJeRgSbCeroW5a\"]}},\"version\":1}",
@@ -31390,9 +31402,17 @@
     "name": "solc",
     "version": "0.8.10+commit.fc410830.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xCB12309bF5Dc3ce86Fe090e2533815838aD7D6E7",
+      "transactionHash": "0xd3623c85316f7122eb5f3ab96702902fa7ab5f59cf14c9d32277a4b37c5a18eb"
+    }
+  },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-12-19T22:48:01.327Z",
+  "updatedAt": "2021-12-19T23:08:30.216Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},
