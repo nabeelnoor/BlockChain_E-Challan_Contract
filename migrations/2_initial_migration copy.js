@@ -1,4 +1,4 @@
-const Migrations = artifacts.require("Main");
+const Migrations = artifacts.require("FinalA");
 
 module.exports = function (deployer) {
   deployer.deploy(Migrations);
